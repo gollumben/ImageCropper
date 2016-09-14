@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style_editor.css">
+<!-- <script type="text/javascript" src="jquery.js"></script> -->
+<script src="./dropzone.js"></script>
+<title>HYTKY</title>
+</head>
+
+
+<body>
+<button onclick="test();" style="position:fixed;">Save</button>
+
+<nav id="nav-bar">
+    <a href="#1" con="Home">H</a>
+    <a href="#2" con="About">Y</a>
+    <a href="#3" con="Events">T</a>
+    <a href="#4" con="People">K</a>
+    <a href="#5" con="Contact">Y</a>
+    <div id="lang">
+	<a href="#" con="FI">FI</a><br>
+	<a href="#" con="SV">SV</a><br>
+	<a href="#" con="EN">EN</a>
+    </div>
+</nav>
+
+<div id="one">
+    <a id="1" class="linkref"></a>
+    <div id="content">
+	  <div class="header">WARNING!!! This font is not for free</div>
+	  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </div>
+</div>
+
+<div id="two">
+    <a id="2" class="linkref"></a>
+    <div id="content">
+	  <div class="header">About HYTKY</div>
+	  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </div>
+</div>
+
+<div id="three">
+    <a id="3" class="linkref"></a>
+    <div id="content">
+	  <div class="header">Events</div>
+	  <table id="eventtable">
+	    <tr>
+	      <th></th>
+	      <th>Date</th>
+	      <th>Event</th>
+	      <th>Location</th>
+	      <th>Link</th>
+	    </tr>
+	    <tr>
+	      <td><img src="lapland-original.jpg" class="img-editable eventimage" imgcrpini="299px,302px,-68px,-23px"></td>
+	      <td>11.10</td>
+	      <td>Terminal</td>
+	      <td>Helsinki UG</td>
+	      <td>Facebook</td>
+	    </tr>
+	  </table>
+    </div>
+</div>
+
+<div id="four">
+    <a id="4" class="linkref"></a>
+    <div id="content">
+	  <div class="header">People</div>
+	  <table id="people">
+	    <tr>
+	      <td><img imgcrpini="164px,130px,-70px,-29px" src="cont.png" class="img-editable peopleimage"></td>
+	      <td><img imgcrpini="100%,147px,auto,auto" src="cont-1.png" class="img-editable peopleimage"></td>
+	      <td><img imgcrpini="102px,126px,-17px,-36px" src="cont-2.png" class="img-editable peopleimage"></td>
+	      <td><img imgcrpini="100%,100%,auto,auto" src="cont-3.png" class="img-editable peopleimage"></td>
+	    </tr>
+	    <tr>
+	      <td>Max Meyer</td>
+	      <td>Max Meyer</td>
+	      <td>Max Meyer</td>
+	      <td>Max Meyer</td>
+	    </tr>
+	    <tr>
+	      <td>Position</td>
+	      <td>Position</td>
+	      <td>Position</td>
+	      <td>Position</td>
+	    </tr>
+	  </table>
+    </div>
+</div>
+
+<div id="five">
+    <a id="5" class="linkref"></a>
+    <div id="content">
+	  <div class="header">Contact</div>
+	  <form action="mailto:gollumben@gmx.de" method="post" enctype="text/plain">
+	      <input type="text" name="name" placeholder="Name"  required id="name"><input type="email" name="email" placeholder="E.mail" required id="email"><br>
+	      <input type="text" name="topic" placeholder="Topic" required id="topic"><input type"number" name="antispam" placeholder="2+2=" id="antispam" required min="4" max="4"><br>
+	      <textarea name="text" placeholder="Your message.." required id="message"></textarea><br>
+	      <input type="submit" value="Submit" id="submit"><input type="reset" value="Reset" id="reset">
+	  </form>
+    </div>
+</div>
+
+<div id="footer">
+	 Helsingin Yliopiston teknokulttuurin yst&auml;v&auml;t ry / HYTKY - Domus Gaudium, tila Hedvig - Lepp&auml;suonkatu 11 - 00100 Helsinki, FINLAND; <br>hytky&#64;hytky.org
+</div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="imagecropper.js"></script>
