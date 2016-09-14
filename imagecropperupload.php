@@ -92,9 +92,6 @@ if(substr($filename, -strlen($endingreq)) == $endingreq){
 
       echo $_FILES['file']['name'] . '
 ';
-//   Just for testing
-//       $_FILES["file"]['name']='test.jpg';
-
 
       uploadimg('./');
 

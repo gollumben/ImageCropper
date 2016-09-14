@@ -1,9 +1,6 @@
 /* ImageCropper v0.2.1.2
 changelog:-initialises from saved picture, modify html file
--still needed to do:  *check for double names -> should be done, requires some sorrow testing, maybe some improvements from the back side, one improvement: When uploading a new image, also set the hashMap of the file-original.ending to true -> done
-					  *ending problem, check whether image is a png or jpg and crop image correspondingly
-                      *original is uploaded every time..->solved
-                      *reset button does not work properly->solved
+-still needed to do:  *upload original, if not existing. Idea: Change name of cropped file, not of original one (makes more sense anyway..)
 */
 var ImageCropper = function(imageref, id) {
 //   clone this element, in order to send it to the php file later
@@ -51,6 +48,15 @@ var ImageCropper = function(imageref, id) {
               filename = filenameOld+"-"+index;
               index++;
       }
+
+      // Get DataURL from the canvas
+            //check png
+            if(_this.filetype=="png" || _this.filetype=="PNG"){
+                  var base64ImageData = content.toDataURL();
+            }
+            else { //in any other case, save as jpg
+                  var base64ImageData = content.toDataURL("image/jpeg", 1);
+            }
     }
 
     filename = filename+"."+fileparts[ind];
@@ -351,7 +357,7 @@ var ImageCropper = function(imageref, id) {
         this.on('sending', function(data, xhr, formData){
           _this.sendHTML = _this.originalImg.cloneNode(true);
           _this.sendHTML.src = _this.filename;
-          alert("This is the sendHTML src: " + _this.sendHTML.src);
+          //alert("This is the sendHTML src: " + _this.sendHTML.src);
     //       add some additional data when uploading, in this case properties of the cropped image (width, height, left offset, top offset)
           var sendstr = "";
           sendstr = getCSSprop(_this.ghostdiv, "width");
@@ -367,7 +373,7 @@ var ImageCropper = function(imageref, id) {
           formData.append('crp-img-tag', _this.sendHTML.outerHTML); //for position of original image before cropping
           formData.append("imgname", _this.filename); //image name, for double names
 
-          alert('This is the filename of the class element ' + _this.filename);
+          //alert('This is the filename of the class element ' + _this.filename);
         });
         this.on("queuecomplete", function(){
 //           Set originalImg back to the value that is actually saved, to enable further saving
@@ -909,7 +915,7 @@ ImageCropper.prototype.SaveAndCropImage= function(){
 
 //			require to allow multiple saves after each other
             newFile.name=newFile.name.replace("-cropped","");
-            alert("This is the filename of the dropzone " + newFile.name);
+            //alert("This is the filename of the dropzone " + newFile.name);
       };
 
     imageObj.src = this.imageref.src;
