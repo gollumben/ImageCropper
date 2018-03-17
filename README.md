@@ -34,14 +34,7 @@ If saving was successful, then the edited images will contain an extra tag 'imgc
 The four numbers specify, at which point the image was, when you stopped editing it. When you work with imageCropper the first time, then after first saving, the original images will be stored by the saver file, to allow you to modify your images next time. The original images are labelled by a '-original' before the file ending.
 
 ## Example
-An example file can be found in index.html.
-
-<!-- ImageCropper required files -->
-<link rel="stylesheet" type="text/css" href="./css/imagecropper.css">
-<script type="text/javascript" src="./js/imagecropper.js"></script>
-<script type="text/javascript" src="./js/dropzone.js"></script>
-<img src="./exampleImages/mountain2.jpg" class="img-editable mountain2image" imgcrpini="608.95px, 361px, -79px, -77px" style="padding: 5%; width: 20%;">
-
+An example file can be found in index.html, which is hosted <a href="https://gollumben.github.io/ImageCropper/">here</a>.
 
 ## Licence
 Published under the MIT Licence.
