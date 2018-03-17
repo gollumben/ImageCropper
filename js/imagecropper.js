@@ -1,6 +1,10 @@
-/* ImageCropper v0.2.1.2
-changelog:-initialises from saved picture, modify html file
--still needed to do:  *upload original, if not existing. Idea: Change name of cropped file, not of original one (makes more sense anyway..)
+/* ImageCropper v0.3
+ChangeLog:
+     *bug in initialisation process fixed
+     *padding and margin copyed correctly now
+     *example improved significantly
+ToDo:
+     *upload original, if not existing. Idea: Change name of cropped file, not of original one (makes more sense anyway..)
 */
 var ImageCropper = function(imageref, id) {
 //   clone this element, in order to send it to the php file later
@@ -48,15 +52,6 @@ var ImageCropper = function(imageref, id) {
               filename = filenameOld+"-"+index;
               index++;
       }
-
-      // Get DataURL from the canvas
-            //check png
-            if(_this.filetype=="png" || _this.filetype=="PNG"){
-                  var base64ImageData = content.toDataURL();
-            }
-            else { //in any other case, save as jpg
-                  var base64ImageData = content.toDataURL("image/jpeg", 1);
-            }
     }
 
     filename = filename+"."+fileparts[ind];
@@ -77,9 +72,10 @@ var ImageCropper = function(imageref, id) {
     var reqHeight = Math.round(parseFloat(getCSSprop(this.imageref, 'height'))) + "px";
     var reqLeft = getCSSprop(this.imageref, 'left');
     var reqTop = getCSSprop(this.imageref, 'top');
-    var reqPadding = getCSSprop(this.imageref, 'padding');
-    var reqMargin = getCSSprop(this.imageref, 'margin');
+    var reqPadding = getCSSprop(this.imageref, 'padding-top') + " " + getCSSprop(this.imageref, 'padding-right') + " " + getCSSprop(this.imageref, 'padding-bottom') + " " + getCSSprop(this.imageref, 'padding-left');
+    var reqMargin = getCSSprop(this.imageref, 'margin-top') + " " + getCSSprop(this.imageref, 'margin-right') + " " + getCSSprop(this.imageref, 'margin-bottom') + " " + getCSSprop(this.imageref, 'margin-left');
     var reqPos = getCSSprop(this.imageref, 'position');
+    // console.log(reqPadding);
 //     var borderRad = getCSSprop(this.imageref, 'border-radius'); // Something is not working here!! PROBLEM!!
 //   alert(borderRad);
 //     var reqDspl = getCSSprop(this.imageref, 'display');
@@ -506,7 +502,7 @@ ImageCropper.prototype.resetedit = function(_this){
       _this.imageref.style.left=_this.initialposX;
       _this.imageref.style.top=_this.initialposY;
       _this.imageref.style.width=_this.initialWidth;
-      _this.imageref.style.height=_this.initialHeight;      
+      _this.imageref.style.height=_this.initialHeight;
       _this.ghostdiv.style.left=_this.initialposX;
       _this.ghostdiv.style.top=_this.initialposY;
       _this.ghostdiv.style.width=_this.initialWidth;
@@ -924,18 +920,20 @@ ImageCropper.prototype.SaveAndCropImage= function(){
 
 // /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\------------------------------------------------------ End of Class - Begin of Document ------------------------------------------------------------------/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 
-// var imported = document.createElement('script');
-// imported.src = 'jquery.js';
-// document.head.appendChild(imported);
-
 var getEditableImages = document.getElementsByClassName("img-editable");
 var ImageCropperHashMap = {}; // this variable holds all the different names of the different images and is the hashmap
 var ImageCropperInstaces = [];
-for (i = 0; i < getEditableImages.length; i++) {
-    ImageCropperInstaces[i] = new ImageCropper(getEditableImages[i], i);
+
+window.addEventListener('load', createImageCropperInstances, false);
+
+function createImageCropperInstances(){
+     for (var i = 0; i < getEditableImages.length; i++) {
+          ImageCropperInstaces[i] = new ImageCropper(getEditableImages[i], i);
+
+     }
 }
 
-function test(){
+function saveCroppedImages(){
 //   Save all images
   for (i = 0; i < getEditableImages.length; i++) {
     ImageCropperInstaces[i].SaveAndCropImage();
@@ -950,8 +948,8 @@ function wrap(el, wrapper) {
 
 // gives me the property written in css, even if it is not written inline, i.e. via class and id; cssvalue has to be a string
 function getCSSprop(elementID, cssvalue){
-            returnvalue="";
-            returnvalue=document.defaultView.getComputedStyle(elementID, "").getPropertyValue(cssvalue);
+            var returnvalue="";
+            returnvalue=document.defaultView.getComputedStyle(elementID, null).getPropertyValue(cssvalue);
             return returnvalue;
 }
 
