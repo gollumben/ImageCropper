@@ -16,7 +16,7 @@ To each image, that you would to edit, add the class 'img-editable'
 ```
 
 ## Usage
-When reloading your html file, a box with two buttons will appear in the top left corner of your image. One of the symbols allows to switch to edit mode, the other to select a new image. In edit mode, you can stretch your image by pulling the corners. Further you can use the '+' and '-' button to zoom it. Use the arrow to finish editing and the cross, to abort you changes.
+When reloading your html file, a box with two buttons will appear in the top left corner of your image. One of the symbols allows to switch to edit mode, the other to select a new image. In edit mode, you can stretch your image by pulling the corners. Further you can use the '+' and '-' button to zoom it. Use the arrow to finish editing and the cross, to abort you changes. Use the mouse to move the image around. You can drag and drop new images into an images canvas to change the image.
 
 ## Save images
 To save the changes you made, you can use the provided 'imagecropperupload.php' file. To initiate the saving process, call the javascript function
